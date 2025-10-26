@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phonebook</title>
+</head>
+<body>
+    <h1>Phonebook</h1>
+    <a href="{{ url_for('add_contact') }}">Add Contact</a> |
+    <a href="{{ url_for('search_contact') }}">Search Contact</a>
+
+    <h2>All Contacts:</h2>
+    <ul>
+        {% for name, phone in phonebook.items() %}
+        <li>{{ name }} -> {{ phone }}</li>
+        {% else %}
+        <li>No contacts yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
