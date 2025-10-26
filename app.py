@@ -19,6 +19,10 @@ def save_phonebook(phonebook):
     with open(FILE_NAME, "w") as file:
         json.dump(phonebook, file, indent=4)
 
+def new_function():
+    pass
+
+
 
 @app.route("/")
 def home():
@@ -46,7 +50,7 @@ def add_contact():
 def search_contact():
     result = None
     if request.method == "POST":
-        name = request.form["name"].strip().title()
+        name = request.form("name").strip().title()
         phonebook = load_phonebook()
         if name in phonebook:
             result = f"{name}: {phonebook[name]}"
